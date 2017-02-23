@@ -66,6 +66,10 @@ const init = function (connect) {
         promise: Q.promise
       });
 
+      if(options.user && options.password){
+        self.db.useBasicAuth(options.user, options.password);
+      }
+
       self.db.listUserDatabases()
       .then(function (databases) {
 
